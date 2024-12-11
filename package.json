@@ -1,0 +1,20 @@
+{
+    "name": "my-food-api",
+    "version": "1.0.0",
+    "description": "API for fetching food data from Firestore",
+    "main": "src/server/server.js",
+    "scripts": {
+      "start": "node src/server/server.js"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+      "firebase-admin": "^11.0.0"
+    },
+    "devDependencies": {},
+    "engines": {
+      "node": ">=14.0.0"
+    },
+    "author": "",
+    "license": "ISC"
+  }
+  
