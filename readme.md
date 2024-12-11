@@ -44,3 +44,32 @@ Fetch food data by food name (e.g., `telur_rebus`).
     "per": "100g"
   }
 ]
+
+
+## Some Errors Server 
+
+#### no need servicesaccount
+
+```js
+[
+  {
+// Memuat variabel lingkungan dari file .env (jika ada)
+require('dotenv').config();
+
+const express = require('express');
+const app = express();
+const routes = require('./routes');  // Mengimpor rute API dari file routes.js
+const admin = require('firebase-admin');
+
+// Inisialisasi Firebase Admin SDK tanpa menyertakan serviceAccountKey.json
+admin.initializeApp();  // Firebase Admin SDK akan menggunakan kredensial default dari Google Cloud
+
+app.use(express.json()); // Middleware untuk parsing request body JSON
+app.use('/api', routes);  // Menambahkan rute API dengan prefix /api
+
+const PORT = process.env.PORT || 3000;  // Menentukan port aplikasi
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);  // Menampilkan pesan saat server berjalan
+});
+   }
+]
